@@ -1,0 +1,12 @@
+DirectoryIndex index.php
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On 
+    RewriteCond %{HTTPS} off 
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]<div class="open_grepper_editor" title="Edit & Save To Grepper"></div>
+
+    RewriteRule ^$ public/index.php [L]
+
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+
+</IfModule>
