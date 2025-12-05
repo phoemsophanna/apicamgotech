@@ -47,15 +47,18 @@ class ProjectPageController extends Controller
     {
         $size = $request->size ?: 8;
         $projects = Project::select("id", "title", "image", "category_id", "websiteLink", "appStore", "playStore", "facebookLink", "instagramLink", "telegramLink")
-                            ->where([["isActive", true]])
-                            ->orderBy("ordering", "asc")
-                            ->get();
+                            ->where([["isActive", true]]);
+
+        if($request->categoryId && $request->categoryId != "all") {
+            $projects = $projects->where("category_id",$request->categoryId);
+        }
+        
+        $projects = $projects->orderBy("ordering", "asc")->get();
 
         return response()->json([
             "status" => "success",
             "message" => "Load data success",
-            "projects" => $projects,
-            "category" => $request->categoryId
+            "projects" => $projects
         ], 200);
     }
 
