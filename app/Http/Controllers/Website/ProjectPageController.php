@@ -54,7 +54,8 @@ class ProjectPageController extends Controller
         return response()->json([
             "status" => "success",
             "message" => "Load data success",
-            "projects" => $projects
+            "projects" => $projects,
+            "category" => $request->categoryId
         ], 200);
     }
 
