@@ -46,7 +46,7 @@ class ProjectPageController extends Controller
     public function list(Request $request)
     {
         $size = $request->size ?: 8;
-        $projects = Project::select("id", "title", "image", "category_id", "websiteLink", "appStore", "playStore", "facebookLink", "instagramLink", "telegramLink")
+        $projects = Project::select("id", "title", "image", "category_id", "websiteLink", "tiktokLink", "appStore", "playStore", "facebookLink", "instagramLink", "telegramLink")
                             ->where([["isActive", true]]);
 
         if($request->categoryId && $request->categoryId != "all") {
