@@ -17,7 +17,7 @@ class ProjectController extends Controller
     public function index()
     {
 
-        $data = Project::select("id", "title", "category_id", "inProgress", "isDisplayHomepage", "isActive", "ordering")->with('category')->orderBy('id', 'desc')->get();
+        $data = Project::select("id", "title", "category_id", "inProgress", "isDisplayHomepage", "tiktokLink", "isActive", "ordering")->with('category')->orderBy('id', 'desc')->get();
 
         return response()->json([
             'message' => 'Get list success.',
