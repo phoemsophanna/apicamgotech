@@ -44,6 +44,7 @@ class ProjectController extends Controller
             "facebookLink" => request("facebookLink", null),
             "instagramLink" => request("instagramLink", null),
             "telegramLink" => request("telegramLink", null),
+            "tiktokLink" => request("tiktokLink", null),
             "appStore" => request("appStore", null),
             "playStore" => request("playStore", null),
             "inProgress" => request("inProgress", false),

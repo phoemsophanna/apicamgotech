@@ -21,6 +21,7 @@ class Project extends Model
         "facebookLink",
         "instagramLink",
         "telegramLink",
+        "tiktokLink",
         "inProgress",
         "isDisplayHomepage",
         "ordering",
