@@ -58,6 +58,13 @@ Route::group(['middleware' => 'api', 'prefix' => 'performances'], function () {
     Route::delete("/delete/{id}", [Admin\PerformanceController::class, "destroy"]);
 });
 
+Route::group(['middleware' => 'api', 'prefix' => 'why-chooses'], function () {
+    Route::get("/", [Admin\WhyChooseController::class, "index"]);
+    Route::post("/", [Admin\WhyChooseController::class, "store"]);
+    Route::get("/detail", [Admin\WhyChooseController::class, "show"]);
+    Route::delete("/delete/{id}", [Admin\WhyChooseController::class, "destroy"]);
+});
+
 Route::group(['middleware' => 'api', 'prefix' => 'news'], function () {
     Route::get("/", [Admin\NewsController::class, "index"]);
     Route::post("/", [Admin\NewsController::class, "store"]);

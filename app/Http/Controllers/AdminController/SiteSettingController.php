@@ -69,6 +69,9 @@ class SiteSettingController extends Controller
             case 'PRIVACY_POLICY':
                 $item = $this->_privacyPolicy($req);
                 break;
+            case 'WORKING_PROCESS':
+                $item = $this->_workingProcess($req);
+                break;
             default:
                 $item = [];
                 break;
@@ -133,6 +136,13 @@ class SiteSettingController extends Controller
         ];
     }
     private function _whyChooseUs(Request $body)
+    {
+        return [
+            "title" => $body->title ?: "",
+            "description" => $body->description ?: ""
+        ];
+    }
+    private function _workingProcess(Request $body)
     {
         return [
             "title" => $body->title ?: "",
