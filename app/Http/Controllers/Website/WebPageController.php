@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use App\Models\PageBanner;
 use App\Models\Performance;
+use App\Models\WhyChoose;
 use App\Models\SiteSetting;
 use App\Models\Skillset;
 use App\Models\Technology;
@@ -48,6 +49,7 @@ class WebPageController extends Controller
         $whoWeAre = SiteSetting::where("type", "WHO_WE_ARE")->first();
         $ourGoal = SiteSetting::where("type", "OUR_GOAL")->first();
         $whyChooseUs = SiteSetting::where("type", "WHY_CHOOSE_US")->first();
+        $workingProcess = SiteSetting::where("type", "WORKING_PROCESS")->first();
         $skillset = SiteSetting::where("type", "SKILLSET")->first();
         $meta = PageBanner::where("pageTitle", "AboutPage")->first();
         return response()->json([
@@ -57,10 +59,12 @@ class WebPageController extends Controller
             "performances" => Performance::where([["isActive", true]])->orderBy('ordering', 'asc')->get(),
             "skillsets" => Skillset::where([["isActive", true]])->orderBy('ordering', 'asc')->get(),
             "technologies" => Technology::where([["isActive", true]])->orderBy('ordering', 'asc')->get(),
+            "whyChooses" => WhyChoose::where("isActive", true)->orderBy("ordering", "asc")->get(),
             "settings" => [
                 "whoWeAre" => $whoWeAre ? json_decode($whoWeAre->content) : null,
                 "ourGoal" => $ourGoal ? json_decode($ourGoal->content) : null,
                 "whyChooseUs" =>  $whyChooseUs ? json_decode($whyChooseUs->content) : null,
+                "workingProcess" =>  $workingProcess ? json_decode($workingProcess->content) : null,
                 "skillset" =>  $skillset ? json_decode($skillset->content) : null,
                 "meta" => $meta
             ]

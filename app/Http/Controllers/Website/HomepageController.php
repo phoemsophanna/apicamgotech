@@ -21,7 +21,7 @@ class HomepageController extends Controller
     {
         $whoWeAre = SiteSetting::where("type", "WHO_WE_ARE")->first();
         $service = SiteSetting::where("type", "SERVICE")->first();
-        $whyChooseUs = SiteSetting::where("type", "WHY_CHOOSE_US")->first();
+        $whyChooseUs = SiteSetting::where("type", "WORKING_PROCESS")->first();
         $project = SiteSetting::where("type", "PROJECT")->first();
         $testimonial = SiteSetting::where("type", "TESTIMONIAL")->first();
         $webHosting = SiteSetting::where("type", "WEB_HOSTING")->first();
