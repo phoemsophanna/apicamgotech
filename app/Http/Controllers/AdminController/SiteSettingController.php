@@ -180,6 +180,8 @@ class SiteSettingController extends Controller
     private function _contact(Request $body)
     {
         return [
+            'title' => $body->title ?: "",
+            'description' => $body->description ?: "",
             'email1' => $body->email1 ?: "",
             'email2' => $body->email2 ?: "",
             'phoneNumber1' => $body->phoneNumber1 ?: "",
