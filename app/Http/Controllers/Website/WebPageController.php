@@ -112,7 +112,7 @@ class WebPageController extends Controller
         $aboutCompany = SiteSetting::where("type", "ABOUT_COMPANY")->first();
         $pageBanners = PageBanner::where("isActive", true)->get();
         $meta = PageBanner::where("pageTitle", "ContactPage")->first();
-        $services = Service::select("id", "title", "svg", "slug")->where("isActive", true)->get();
+        $services = Service::select("id", "title", "svg", "slug")->where("isActive", true)->orderBy("ordering", "asc")->get();
         $pageBanner = null;
         foreach ($pageBanners as $page) {
             $pageBanner[$page->pageTitle] = $page->image;
