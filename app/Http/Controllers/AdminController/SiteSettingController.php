@@ -196,6 +196,7 @@ class SiteSettingController extends Controller
             'pageId' => $body->pageId ?: "",
             "thumbnail" => $body->thumbnail ?: "",
             "contactFormEmail" => $body->contactFormEmail ?: "",
+            "widget" => $body->widget ?: false
         ];
     }
     private function _termService(Request $body)
