@@ -32,7 +32,7 @@ class HomepageController extends Controller
             "status" => "success",
             "message" => "Load data success",
             "meta" => $meta,
-            "services" => Service::select("id", "title", "summary", "image")
+            "services" => Service::select("id", "title", "slug", "summary", "image")
                 ->where([['isDisplayHomepage', true], ['isActive', true]])
                 ->orderBy('ordering', 'asc')
                 ->get(),

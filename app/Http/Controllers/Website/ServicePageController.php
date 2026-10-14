@@ -13,7 +13,7 @@ class ServicePageController extends Controller
 {
     public function index()
     {
-        $services = Service::select("id", "title", "summary", "image")->where([["isActive", true]])->orderBy('ordering', 'asc')->get();
+        $services = Service::select("id", "slug", "title", "summary", "image")->where([["isActive", true]])->orderBy('ordering', 'asc')->get();
         $skillsets = Skillset::select("id", "title", "percentage", "barColor")->where([["isActive", true]])->orderBy('ordering', 'asc')->get();
 
         $service = SiteSetting::where("type", "SERVICE")->first();
