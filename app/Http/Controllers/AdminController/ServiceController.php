@@ -7,6 +7,7 @@ use App\Models\Service;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
@@ -39,7 +40,9 @@ class ServiceController extends Controller
             "metaDesc" => request("metaDesc", ""),
             "isDisplayHomepage" => request("isDisplayHomepage", false),
             "ordering" => request("ordering", 0),
-            'isActive' => request("isActive", true)
+            'isActive' => request("isActive", true),
+            "svg" => request("svg", ""),
+            "slug" => Str::slug(request("title", ""))
         ];
 
         $result = $this->_onSave($request->id, $dataForm);

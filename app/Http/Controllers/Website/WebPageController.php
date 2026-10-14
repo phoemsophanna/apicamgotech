@@ -111,6 +111,7 @@ class WebPageController extends Controller
         $aboutCompany = SiteSetting::where("type", "ABOUT_COMPANY")->first();
         $pageBanners = PageBanner::where("isActive", true)->get();
         $meta = PageBanner::where("pageTitle", "ContactPage")->first();
+        $services = Service::select("id", "title", "svg", "slug")->where("isActive", true)->get();
         $pageBanner = null;
         foreach ($pageBanners as $page) {
             $pageBanner[$page->pageTitle] = $page->image;
@@ -121,6 +122,7 @@ class WebPageController extends Controller
             "message" => "Load data success",
             "contact" => $contact ? json_decode($contact->content) : null,
             "aboutCompany" => $aboutCompany ? json_decode($aboutCompany->content) : null,
+            "services" => $services,
             "pageBanner" => $pageBanner,
             "meta" => $meta
         ], 200);

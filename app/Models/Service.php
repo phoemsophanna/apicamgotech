@@ -18,5 +18,7 @@ class Service extends Model
         "isActive",
         "metaKeyword",
         "metaDesc",
+        "svg",
+        "slug"
     ];
 }
