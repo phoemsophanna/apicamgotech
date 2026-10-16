@@ -192,6 +192,8 @@ class SiteSettingController extends Controller
             'instagramLink' => $body->instagramLink ?: "",
             'telegramLink' => $body->telegramLink ?: "",
             'linkedinLink' => $body->linkedinLink ?: "",
+            'tiktokLink' => $body->tiktokLink ?: "",
+            'whatsappLink' => $body->whatsappLink ?: "",
             'appId' => $body->appId ?: "",
             'pageId' => $body->pageId ?: "",
             "thumbnail" => $body->thumbnail ?: "",
